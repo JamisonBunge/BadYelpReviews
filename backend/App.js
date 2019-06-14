@@ -27,7 +27,7 @@ const resolvers = {
     Query: {
         user: () => { return "Nick Miller" },
         page: async (_parent, _args, { dataSources }) => dataSources.Page.getPage(),
-        review: async (_parent, _args, { dataSources }) => dataSources.Yelp.getPage(),
+        review: async (_parent, { location }, { dataSources }) => dataSources.Yelp.getPage(),
         random: async (parent, { location }, { dataSources }) => dataSources.Yelp.getReviewByPlace(location)
     },
     Yelp: {
